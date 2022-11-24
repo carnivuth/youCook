@@ -1,3 +1,3 @@
 export class Ingridient{
-    public nome?:String
+    public name?:String
 }

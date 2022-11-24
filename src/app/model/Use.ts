@@ -1,7 +1,7 @@
 import { Ingridient } from "./Ingredient";
 
 export class Use{
-    public quantity?:BigInteger;
+    public quantity?:Number;
     public ingridient?:Ingridient;
 
 }
