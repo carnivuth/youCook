@@ -1,0 +1,29 @@
+<div *ngIf="recipe">
+	<div class="col-sm">
+		<div>{{recipe.name}}</div>
+		
+	</div>
+	<div class="col-sm"> 
+		<div>{{recipe.description}}</div>
+	</div>
+	<div class="col-sm" *ngIf="recipe.ingredients">
+		<div> <h5>ingredienti</h5></div> 
+		<div *ngFor="let ingredient of recipe?.ingredients" class="row">
+			<div class="col-sm">
+				{{ingredient.ingridient?.name}}
+			</div>
+			<div class="col-sm">
+				{{ingredient.quantity}}
+			</div>
+		</div>
+	</div>
+	<div class="col-sm" *ngIf="recipe.steps">
+		<div><h5 class=""> procedimento</h5></div>
+		<div *ngFor="let step of recipe?.steps"
+			class="row">
+			<div class="col-sm">{{step.name}}</div>
+			<div class="col-sm">{{step.description}}</div>
+		</div>
+	</div>
+	
+</div>
