@@ -1,4 +1,4 @@
-<div *ngIf="recipe">
+<!--<div *ngIf="recipe">
 	<div class="col-sm">
 		<div>{{recipe.name}}</div>
 		
@@ -27,3 +27,12 @@
 	</div>
 	
 </div>
+-->
+<nb-card  *ngIf="recipe">
+	<nb-card-header class="recipe-header">
+		{{recipe.name}}
+	</nb-card-header>
+	<nb-card-body class="recipe-header">
+		{{recipe.description}}
+	</nb-card-body>
+</nb-card>
