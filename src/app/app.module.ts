@@ -8,7 +8,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbButtonModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 
@@ -22,6 +22,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
   imports: [
     FormsModule,
     BrowserModule,
+    NbButtonModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
