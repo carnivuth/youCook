@@ -1,22 +1,22 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Recipe } from '../model/Recipe';
-import { RecipesService } from '../recipes.service';
+import { DatabaseService } from 'src/database.service';
 
 @Component({
   selector: 'app-recipes-list',
-  changeDetection:ChangeDetectionStrategy.OnPush,
   templateUrl: './recipes-list.component.html',
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
   public recipes?:Recipe[];
-  constructor(private rs:RecipesService ){
+  constructor(private db:DatabaseService ){
   }
   ngOnInit(): void {
-   this.recipes=this.rs.getRecipes();
-   this.rs.recipesEvent.subscribe(recipes=>{
-    this.recipes=recipes
-   })
+    
+ 
+    this.db.getRecipes().subscribe(res=>{
+      this.recipes=res as Recipe[];
+    });
   }
   
 
