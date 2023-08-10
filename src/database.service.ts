@@ -1,19 +1,23 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { users } from './app/dbmock';
 import { User } from './app/model/User';
+import { Recipe } from './app/model/Recipe';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DatabaseService {
-  private users:User[]=users;
-  constructor() { }
-  public getUser(email:String):User|null {
-    for (var i =0;this.users.length;i++ ){
-      if(this.users[i].email==email)return this.users[i];
-      
-    }
-    return null;
-    
+  private users: User[] = users;
+  private recipes?: Recipe[];
+  
+  //APIS
+  private base: string = 'http://localhost:8039/';
+  private urlRecipes: string = this.base + 'recipes';
+
+  constructor(private _http:HttpClient) {}
+  public getRecipes() {
+    return this._http.get(this.urlRecipes)  
   }
+
 }
