@@ -10,6 +10,7 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbCardModule, NbButtonModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     RecipesListComponent,
     RecipeComponent,
     NewRecipeComponent,
+    RecipeDetailsComponent,
   ],
   imports: [
     FormsModule,

@@ -28,7 +28,7 @@
 	
 </div>
 -->
-<nb-card  *ngIf="recipe">
+<nb-card  *ngIf="recipe" [routerLink]="['/recipes',recipe.id]" >
 	<nb-card-header class="recipe-header">
 		{{recipe.name}}
 	</nb-card-header>
