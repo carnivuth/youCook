@@ -1,1 +1,12 @@
-<p>recipe-details works!</p>
+
+<div class="recipes-container">
+    <h3>INGREDIENTS</h3>
+	<div *ngFor="let ingredient of ingredients"
+				class="recipe-card">{{ingredient.name}}</div>
+</div>
+<div class="recipes-container">
+    <h3>STEPS</h3>
+	<div *ngFor="let step of steps"
+		
+		class="recipe-card">{{step.name}}</div>
+</div>
