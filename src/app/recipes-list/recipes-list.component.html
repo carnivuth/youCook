@@ -1,18 +1,5 @@
-<div class="container"
-	style="margin-top: 70px;">
-	<div class="row">
-		<div class="col-sm-5">
-			<div *ngFor="let recipe of recipes"
-				class="row">
-				<app-recipe [recipe]="recipe"></app-recipe>
-			</div>
-
-		</div>
-		<div class="col-sm-3">
-			<app-new-recipe></app-new-recipe>
-
-		</div>
-
-		
-	</div>
+<div class="recipes-container">
+	<app-recipe *ngFor="let recipe of recipes"
+		[recipe]="recipe"
+		class="recipe-card"></app-recipe>
 </div>

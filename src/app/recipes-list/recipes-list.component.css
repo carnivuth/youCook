@@ -1,0 +1,19 @@
+.recipes-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+  }
+  
+  .recipe-card {
+    margin: 1rem;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .recipes-container{
+      display: flex;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+    }
+  }
+  
