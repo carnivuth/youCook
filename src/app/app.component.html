@@ -1,4 +1,11 @@
-
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<nb-layout>
+	<nb-layout-header text-center>
+		<h1>YOUCOOK</h1>
+	</nb-layout-header>
+	<nb-layout-column>
+		<router-outlet></router-outlet>
+	</nb-layout-column>
+	<nb-layout-footer>
+		<a href="https://github.com/carnivuth/">© Longhi Matteo</a>
+	</nb-layout-footer>
+</nb-layout>
