@@ -1,5 +1,52 @@
-<form >
-    <input placeholder="name" type="text" name="name" id="inputGroup-sizing-sm" [(ngModel)]="name" class="form-control"/>
-    <input placeholder="description" type="text" name="description" id="inputGroup-sizing-sm" class="form-control" [(ngModel)]="description"/>
-    <input type="button" id="inputGroup-sizing-sm" class="btn btn-primary" value="aggiungi" (click)="addRecipe()">
-</form>  
+<nb-card>
+	<nb-card-body>
+		<div class="recipe-form recipe-form-element">
+			<input class="recipe-form-element"
+				type="text"
+				nbInput
+				placeholder="nome" [(ngModel)]="name">
+			<input class="recipe-form-element"
+				type="text"
+				nbInput
+				placeholder="descrizione" [(ngModel)]="description">
+
+		</div>
+		<textarea class="recipe-form-element"
+			nbInput
+			fullWidth
+			placeholder="procedimento" [(ngModel)]="instructions"></textarea>
+	</nb-card-body>
+</nb-card>
+
+<nb-card>
+	<nb-card-body>
+		<div class="recipe-form recipe-form-element">
+
+			<input type="text"
+				nbInput
+				placeholder="ingrediente" [(ngModel)]="ingredient" (keypress)="suggestIngredients()">
+			<input type="text"
+				nbInput
+				placeholder="quantita" [(ngModel)]="quantity">
+		</div>
+        <div class="insert-btn">
+            <button nbButton
+                shape="semi-round"
+                status="info" (click)="addIngredient()">
+                aggiungi ingrediente
+            </button>
+        </div>
+	</nb-card-body>
+</nb-card>
+
+<div class="insert-btn">
+	<button nbButton
+		shape="semi-round"
+		status="info" (click)="addRecipe()">
+		Invia
+	</button>
+</div>
+<div class="ingredients"><nb-card *ngFor="let i of ingredients">
+    <nb-card-header>{{i.name}}</nb-card-header>
+    <nb-card-body>{{i.quantity}}</nb-card-body>
+</nb-card></div>
