@@ -1,12 +1,27 @@
+<h2 class="text-center">{{recipe?.name}}</h2>
 
-<div class="recipes-container">
-    <h3>INGREDIENTS</h3>
-	<div *ngFor="let ingredient of ingredients"
-				class="recipe-card">{{ingredient.name}}</div>
-</div>
-<div class="recipes-container">
-    <h3>STEPS</h3>
-	<div *ngFor="let step of steps"
-		
-		class="recipe-card">{{step.name}}</div>
+<div class="recipe-details-container">
+
+	<div class="ingredients-container">
+		<h3 class="text-center">INGREDIENTI</h3>
+
+		<nb-card *ngFor="let ingredient of ingredients"
+			class="recipe-card">
+			<nb-card-body class="text-center">{{ingredient.name}}</nb-card-body>
+			<nb-card-footer class="text-center">
+				{{ingredient.quantity}}
+			</nb-card-footer>
+		</nb-card>
+	</div>
+	<div class="instruction-container">
+		<h3 class="text-center">ISTRUZIONI</h3>
+
+		<nb-card size="tiny"
+			class="recipe-card">
+			<nb-card-body>
+				{{recipe?.instructions}}
+			</nb-card-body>
+		</nb-card>
+	</div>
+
 </div>

@@ -23,6 +23,9 @@ export class DatabaseService {
     return this._http.get(this.urlRecipes+"/"+id+"/ingredients");  
   }
 
+  public getRecipe( id:String) {
+    return this._http.get(this.urlRecipes+"/"+id);  
+  }
   public getRecipesSteps( id:String) {
     return this._http.get(this.urlRecipes+"/"+id+"/steps");  
   }

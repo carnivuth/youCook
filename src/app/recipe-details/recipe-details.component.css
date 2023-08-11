@@ -1,0 +1,32 @@
+.recipe-details-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+
+}
+.ingredients-container{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+
+  }
+.recipes-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+  }
+
+
+  
+  .recipe-card {
+    margin: 1rem;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .recipe-details-container{
+      display: flex;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+    }
+  }
