@@ -1,0 +1,4 @@
+- tempi di cottura entita separata
+- funzionalita di annotazione
+- ingredienti in evidenza incollonati 
+- layout pagina due colonne ingredienti e passaggi
