@@ -1,3 +1,5 @@
+<h2 class="text-center">AGGIUNGI RICETTA</h2>
+
 <nb-card>
 	<nb-card-body>
 		<div class="recipe-form recipe-form-element">
@@ -24,7 +26,10 @@
 
 			<input type="text"
 				nbInput
-				placeholder="ingrediente" [(ngModel)]="ingredient" (keypress)="suggestIngredients()">
+				placeholder="ingrediente" [(ngModel)]="ingredient" list="suggestions" (keyup)="suggestIngredients()">
+				<datalist id="suggestions" >
+					<option *ngFor="let suggestion of suggestions" value="{{suggestion.name}}">{{suggestion.name}}</option>
+				</datalist>
 			<input type="text"
 				nbInput
 				placeholder="quantita" [(ngModel)]="quantity">
@@ -46,7 +51,7 @@
 		Invia
 	</button>
 </div>
-<div class="ingredients"><nb-card *ngFor="let i of ingredients">
+<div class="ingredients"><nb-card  class="ingredient" *ngFor="let i of ingredients">
     <nb-card-header>{{i.name}}</nb-card-header>
     <nb-card-body>{{i.quantity}}</nb-card-body>
 </nb-card></div>
