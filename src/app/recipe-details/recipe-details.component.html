@@ -2,7 +2,7 @@
 
 <div class="recipe-details-container">
 
-	<div >
+	<div>
 		<h3 class="text-center">INGREDIENTI</h3>
 		<div class="ingredients-container">
 
@@ -10,7 +10,15 @@
 				class="recipe-card">
 				<nb-card-body class="text-center">{{ingredient.name}}</nb-card-body>
 				<nb-card-footer class="text-center">
-					{{ingredient.quantity}}
+					<div *ngIf="!annotations" >
+						{{ingredient.quantity}}
+					</div>
+					<div *ngIf="annotations" class="annotation-input">
+						<input [(ngModel)]="ingredient.quantity"
+							placeholder="inserisci la quantita"
+							nbInput
+							type="text">
+					</div>
 				</nb-card-footer>
 			</nb-card>
 		</div>
@@ -21,7 +29,11 @@
 		<nb-card size="tiny"
 			class="recipe-card">
 			<nb-card-body>
-				{{recipe?.instructions}}
+				<div *ngIf="!annotations">{{recipe?.instructions}}</div>
+				<div *ngIf="annotations && recipe" >	<textarea [(ngModel)]="recipe.instructions" placeholder="inserisci il procedimento"
+					nbInput
+			fullWidth
+					></textarea></div>
 			</nb-card-body>
 		</nb-card>
 	</div>
@@ -29,12 +41,17 @@
 </div>
 
 <div class="recipe-buttons">
-	<button (click)="annotations()"
+	<button (click)="toggleAnnotations()"
 		nbButton
 		shape="semi-round"
 		status="success"
 		class="recipe-button">
+		<div *ngIf="!annotations">
 		Annota
+		</div>
+		<div *ngIf="annotations">
+			Salva annotazioni
+			</div>
 	</button>
 	<button (click)="deleteRecipe()"
 		nbButton
@@ -44,3 +61,4 @@
 		elimina ricetta
 	</button>
 </div>
+

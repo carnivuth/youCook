@@ -17,6 +17,7 @@ constructor(private route: ActivatedRoute , private db:DatabaseService, private 
   public steps?:Step[]
   public recipe?:Recipe
   public id?:string;
+  public annotations?:boolean;
   
   ngOnInit(){
      this.id = this.route.snapshot.paramMap.get('id')as string;
@@ -30,6 +31,7 @@ constructor(private route: ActivatedRoute , private db:DatabaseService, private 
     this.db.getRecipe(this.id as string).subscribe(res=>{
       this.recipe=res as Recipe;
     })
+    this.annotations=false;
 
   }
   public  deleteRecipe() {
@@ -38,7 +40,7 @@ constructor(private route: ActivatedRoute , private db:DatabaseService, private 
       this.router.navigate(["/"]);
     });
   }
-  public annotations(){
-    
+  public toggleAnnotations(){
+    this.annotations=!this.annotations;
   }
 }
