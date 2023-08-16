@@ -1,6 +1,7 @@
+<div class="new-recipe-btn">   <button nbButton shape="semi-round" status="info" [routerLink]="['/new-recipe']">Aggiungi Ricetta</button> </div>
+
 <div class="recipes-container">
 	<app-recipe *ngFor="let recipe of recipes"
 		[recipe]="recipe"
 		class="recipe-card"></app-recipe>
 </div>
-<div class="new-recipe-btn">   <button nbButton shape="semi-round" status="info" [routerLink]="['/new-recipe']">Aggiungi Ricetta</button> </div>

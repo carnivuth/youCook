@@ -36,4 +36,7 @@ export class DatabaseService {
       headers,
     });
   }
+  public deleteRecipe(id:string) {
+    return this._http.delete(this.urlRecipes + '/'+id);
+  }
 }
