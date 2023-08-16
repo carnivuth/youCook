@@ -2,16 +2,18 @@
 
 <div class="recipe-details-container">
 
-	<div class="ingredients-container">
+	<div >
 		<h3 class="text-center">INGREDIENTI</h3>
+		<div class="ingredients-container">
 
-		<nb-card *ngFor="let ingredient of ingredients"
-			class="recipe-card">
-			<nb-card-body class="text-center">{{ingredient.name}}</nb-card-body>
-			<nb-card-footer class="text-center">
-				{{ingredient.quantity}}
-			</nb-card-footer>
-		</nb-card>
+			<nb-card *ngFor="let ingredient of ingredients"
+				class="recipe-card">
+				<nb-card-body class="text-center">{{ingredient.name}}</nb-card-body>
+				<nb-card-footer class="text-center">
+					{{ingredient.quantity}}
+				</nb-card-footer>
+			</nb-card>
+		</div>
 	</div>
 	<div class="instruction-container">
 		<h3 class="text-center">ISTRUZIONI</h3>
@@ -27,8 +29,7 @@
 </div>
 
 <div class="recipe-buttons">
-	<button 
-		(click)="annotations()"
+	<button (click)="annotations()"
 		nbButton
 		shape="semi-round"
 		status="success"
