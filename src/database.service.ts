@@ -39,4 +39,11 @@ export class DatabaseService {
   public deleteRecipe(id:string) {
     return this._http.delete(this.urlRecipes + '/'+id);
   }
+  public addAnnotations(recipe:Recipe){
+
+    const headers = new HttpHeaders({ 'Content-type': 'application/json' });
+    return this._http.put(this.urlRecipes + '/'+recipe.id, JSON.stringify(recipe), {
+      headers,
+    });
+  }
 }
