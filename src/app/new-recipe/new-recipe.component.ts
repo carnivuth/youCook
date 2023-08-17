@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { Recipe } from '../model/Recipe';
 import { Ingridient } from '../model/Ingredient';
-import { UntypedFormBuilder } from '@angular/forms';
 import { DatabaseService } from 'src/database.service';
-import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-new-recipe',
@@ -18,7 +16,7 @@ export class NewRecipeComponent {
   public ingredient?: string;
   public ingredients: Ingridient[] = [];
   public suggestions: Ingridient[] = [];
-  public constructor(private router: Router,private db: DatabaseService) {}
+  public constructor(private db: DatabaseService) {}
   
   public addRecipe() {
     if (this.name != null && this.name!="" &&
@@ -31,7 +29,12 @@ export class NewRecipeComponent {
       r.instructions=this.instructions;
       r.ingredients=this.ingredients;
       this.db.addRecipe(r).subscribe(res=>{
-        this.router.navigate(["/new-recipe/"]);
+        alert('la ricetta e stata aggiunta');
+        this.name='';
+        this.ingredients=[];
+        this.description='';
+        this.instructions='';
+
       });
     }
   }
@@ -56,6 +59,8 @@ export class NewRecipeComponent {
       i.name = this.ingredient;
       i.quantity = this.quantity;
       this.ingredients?.push(i);
+      this.ingredient="";
+      this.quantity="";
     }
   }
 }
