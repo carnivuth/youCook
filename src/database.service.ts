@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './app/model/Recipe';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from './environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ export class DatabaseService {
   private recipes?: Recipe[];
 
   //APIS
-  private base: string = 'http://localhost:8039/';
+  private base: string = 'http://'+environment.youcook_backend_host+':'+environment.youcook_backend_port+'/';
   private urlRecipes: string = this.base + 'recipes';
   private urlIngredients: string = this.base + 'ingredients';
 
