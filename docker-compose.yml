@@ -1,0 +1,25 @@
+
+
+version: "3.7"
+services:
+#youcook frontend server
+  youcook-frontend:
+    build:
+      dockerfile: Dockerfile
+    image: carnivuth/youcook-frontend
+    container_name: youcook-frontend
+    restart: unless-stopped
+    working_dir: /var/www/
+    ports:
+      - 8050:80
+    volumes:
+      - ./:/var/www
+    networks:
+      - yc-backend
+   
+volumes:
+  db: 
+networks:
+  yc-backend:
+    external: 
+      name: yc-backend 
