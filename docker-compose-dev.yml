@@ -1,0 +1,61 @@
+
+
+version: "3.7"
+services:
+  #youcook  server
+  youcook-db:
+      image: mysql
+      restart: unless-stopped
+      environment:
+        MYSQL_DATABASE: youcook-db 
+        MYSQL_ROOT_PASSWORD: youcook-db
+        MYSQL_PASSWORD: youcook-db
+        MYSQL_USER: youcook-db
+        SERVICE_NAME: youcook-db
+      ports:
+        - 3306:3306
+      healthcheck:
+          test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+          interval: 1s
+          timeout: 10s
+          retries: 5
+
+      volumes:
+        - db:/var/lib/mysql
+        - ../youcook-backend/migrations:/docker-entrypoint-initdb.d
+
+      networks:
+        - yc-backend
+
+  #youcook backend server
+  youcook-backend:
+    depends_on:
+      youcook-db:
+        condition: service_healthy
+    image: carnivuth/youcook-backend:latest
+    restart: unless-stopped
+    ports:
+      - 8039:8039
+    volumes:
+      - .env/:/usr/src/youcook-backend/.env
+    networks:
+      - yc-backend
+
+#youcook server
+  youcook:
+    depends_on:
+      - youcook-backend
+    build:
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8050:80
+    networks:
+      - yc-backend
+volumes:
+  db:
+
+networks:
+  yc-backend:
+    external: 
+      name: yc-backend 
