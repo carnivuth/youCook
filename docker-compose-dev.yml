@@ -2,9 +2,9 @@
 
 version: "3.7"
 services:
-  #youcook  server
+  #youcook  db server
   youcook-db:
-      image: mysql
+      image: carnivuth/youcook-db:latest
       restart: unless-stopped
       environment:
         MYSQL_DATABASE: youcook-db 
