@@ -22,7 +22,6 @@ services:
 
       volumes:
         - db:/var/lib/mysql
-        - ../youcook-backend/migrations:/docker-entrypoint-initdb.d
 
       networks:
         - yc-backend
