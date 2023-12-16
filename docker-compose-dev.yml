@@ -2,9 +2,9 @@
 
 version: "3.7"
 services:
-  #youcook  server
+  #youcook  db server
   youcook-db:
-      image: mysql
+      image: carnivuth/youcook-db:latest
       restart: unless-stopped
       environment:
         MYSQL_DATABASE: youcook-db 
@@ -22,7 +22,6 @@ services:
 
       volumes:
         - db:/var/lib/mysql
-        - ../youcook-backend/migrations:/docker-entrypoint-initdb.d
 
       networks:
         - yc-backend
