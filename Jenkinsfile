@@ -1,6 +1,6 @@
 pipeline {
 	environment {
-		registry = "YourDockerhubAccount/YourRepository"
+		registry = "carnivuth/youcook"
 		registryCredential = 'dockerhub_id'
 		dockerImage = ''
 	}
@@ -9,7 +9,7 @@ pipeline {
 	stages {
 		stage('Cloning our Git') {
 			steps {
-				git 'https://github.com/YourGithubAccount/YourGithubRepository.git'
+				git 'https://github.com/carnivuth/youCook.git'
 			}
 		}
 
