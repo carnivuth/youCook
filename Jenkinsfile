@@ -9,7 +9,8 @@ pipeline {
 	stages {
 		stage('Cloning our Git') {
 			steps {
-				git 'https://github.com/carnivuth/youCook.git'
+				git branch:'main', 
+				    url:'https://github.com/carnivuth/youCook'
 			}
 		}
 
