@@ -7,14 +7,14 @@ pipeline {
 
 	agent any
 	stages {
-		stage('Cloning our Git') {
+		stage('Cloning Repository') {
 			steps {
 				git branch:'main', 
 				    url:'https://github.com/carnivuth/youCook'
 			}
 		}
 
-		stage('Building our image') {
+		stage('Building youcook docker image') {
 			steps {
 				script {
 					dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -22,7 +22,7 @@ pipeline {
 			}
 		}
 
-		stage('Deploy our image') {
+		stage('Upload docker image to docker hub') {
 			steps {
 				script {
 					docker.withRegistry('', registryCredential) {
@@ -32,7 +32,7 @@ pipeline {
 			}
 		}
 
-		stage('Cleaning up') {
+		stage('Cleaning up environment') {
 			steps {
 				sh "docker rmi $registry:$BUILD_NUMBER"
 			}
